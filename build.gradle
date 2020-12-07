@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'java'
 }
 
 group 'advent_of_code'

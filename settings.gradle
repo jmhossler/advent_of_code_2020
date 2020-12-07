@@ -1,2 +1,5 @@
 rootProject.name = 'advent_of_code_2020'
 include("src")
+include 'src:test'
+findProject(':src:test')?.name = 'test'
+
