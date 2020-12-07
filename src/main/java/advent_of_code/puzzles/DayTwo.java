@@ -58,21 +58,21 @@ public class DayTwo implements Puzzle {
     }
 
     @Override
-    public Integer partOne() throws IOException {
+    public Long partOne() throws IOException {
         List<ElfPassword> passwordsToTest = getPasswords();
         List<ElfPassword> validPassword = passwordsToTest.stream()
                 .filter(ElfPassword::isValidPartOne)
                 .collect(Collectors.toList());
-        return validPassword.size();
+        return (long) validPassword.size();
     }
 
     @Override
-    public Integer partTwo() throws IOException {
+    public Long partTwo() throws IOException {
         List<ElfPassword> passwordsToTest = getPasswords();
         List<ElfPassword> validPassword = passwordsToTest.stream()
                 .filter(ElfPassword::isValidPartTwo)
                 .collect(Collectors.toList());
-        return validPassword.size();
+        return (long) validPassword.size();
     }
 
     @Override

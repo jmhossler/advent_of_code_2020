@@ -4,10 +4,10 @@ import java.io.IOException;
 
 public interface Puzzle {
     // Solution to part one
-    Integer partOne() throws IOException;
+    Long partOne() throws IOException;
 
     // Solution to part two
-    Integer partTwo() throws IOException;
+    Long partTwo() throws IOException;
 
     // Gets the day
     Integer getDay();

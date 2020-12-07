@@ -1,6 +1,7 @@
 package advent_of_code;
 
 import advent_of_code.puzzles.DayOne;
+import advent_of_code.puzzles.DayThree;
 import advent_of_code.puzzles.DayTwo;
 import com.google.common.collect.ImmutableList;
 
@@ -12,7 +13,8 @@ public class PuzzleRunner {
     public static void main(String[] args) throws IOException {
         List<Puzzle> puzzles = ImmutableList.of(
                 DayOne.builder().inputProvider(Input.builder().filepath("inputs\\day_one.txt").build()).build(),
-                DayTwo.builder().inputProvider(Input.builder().filepath("inputs\\day_two.txt").build()).build()
+                DayTwo.builder().inputProvider(Input.builder().filepath("inputs\\day_two.txt").build()).build(),
+                DayThree.builder().inputProvider(Input.builder().filepath("inputs\\day_three.txt").build()).build()
         );
 
         for (Puzzle puzzle : puzzles) {
@@ -21,7 +23,7 @@ public class PuzzleRunner {
         }
     }
 
-    public static void displaySolution(Integer day, Integer part, Integer solution) {
+    public static void displaySolution(Integer day, Integer part, Long solution) {
         System.out.println("Day " + day + " part " + part + " solution: " + solution);
     }
 }

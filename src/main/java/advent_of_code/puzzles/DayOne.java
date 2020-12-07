@@ -18,14 +18,14 @@ public class DayOne implements Puzzle {
     InputProvider inputProvider;
 
     @Override
-    public Integer partOne() throws IOException {
+    public Long partOne() throws IOException {
         Integer expectedSum = 2020;
-        Map<Integer, Integer> neededValueMap = new HashMap();
+        Map<Integer, Integer> neededValueMap = new HashMap<>();
         List<Integer> expenseReport = getExpenseReport();
 
         for(Integer expense: expenseReport) {
             if (neededValueMap.containsKey(expense)) {
-                return neededValueMap.get(expense) * expense;
+                return ((long) neededValueMap.get(expense) * expense);
             }
             neededValueMap.put(expectedSum - expense, expense);
         }
@@ -33,14 +33,14 @@ public class DayOne implements Puzzle {
     }
 
     @Override
-    public Integer partTwo() throws IOException {
-        Integer expectedSum = 2020;
+    public Long partTwo() throws IOException {
+        int expectedSum = 2020;
         List<Integer> expenseReport = getExpenseReport();
         List<List<Integer>> possibleCombinations = Lists.cartesianProduct(expenseReport, expenseReport, expenseReport);
 
         for (List<Integer> possibleCombination : possibleCombinations) {
-            if (possibleCombination.stream().mapToInt(Integer::intValue).sum() == expectedSum.intValue()) {
-                return possibleCombination.stream().reduce(1, (a,b) -> a * b);
+            if (possibleCombination.stream().mapToInt(Integer::intValue).sum() == expectedSum) {
+                return Long.valueOf(possibleCombination.stream().reduce(1, (a,b) -> a * b));
             }
         }
         return null;
